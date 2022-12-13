@@ -1,0 +1,3 @@
+https://www.systutorials.com/docs/linux/man/1-hostname/
+https://clang.llvm.org/docs/ClangCommandLineReference.html#linker-flags
+https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html

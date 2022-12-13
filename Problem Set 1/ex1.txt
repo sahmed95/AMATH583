@@ -1,0 +1,17 @@
+1.What is the host name of the computer as reported by your linux environment? (You will need to find the right Linux command to execute for this. I suggest searching the web.)
+Using the command hostname (1) in the Shell, we get that the host name of the computer is 'student.domain'. 
+
+2.How would you specify the name of an output file when you use the compiler if you wanted the executable to have a name other than a.out?
+One way to do this would be to create an object file first using the command $ c++ -c hello.cpp -o hello.o to create an object file called hello.o. Then we can create an executable from this object file using $ c++ hello.o -o myexecutable where 'myexecutable' would be the name of the output. Observing the flag '-o' in the two places where we create new files, I tried simply using the command $ c++ hello.cpp -o myexecutable. This created an executable called 'myexecutable' and we verified this by running $ ./myexecutable. To further confirm this, we used $ man c++ to get the manual on Clang and saw that '-o <file>' is used to write output to file. 
+
+3. What happens if you type $ a.out instead of $ ./a.out to run your program? What is the difference (operationally) between the two statements?
+We get an error 'command not found'. The difference operationally is that '.' tells the computer to look in the current directory and '/' creates the path to the executable in the current directory. Otherwise, the computer will search for the executable elsewhere where it does not exist. 
+
+4. What does clang print when you run $ c++ --version?
+Apple LLVM version 8.0.0 (clang-800.0.42.1)
+Target: x86_64-apple-darwin15.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+
+ 5.What do the -I and -l flags do in the command we used to build a.out?
+Using, $ man c++ we found that -I<directory> adds the specified directory to the search path for include files. In our case, we include directory containing Python2.7 in our search path. The '-l' flag comes in when we are trying to link different object files into an executable. In our case, we use functions from Python so we need to link it. $-lPython2.7 searches the library named Python2.7 when linking for the required funcitons. The output links 'cos4pi.cpp' and Python2.7 library. 
